@@ -142,7 +142,8 @@ class reqmap():
             if value:
                 newcolumn.append("1")
             else:
-                newcolumn.append("0")
+                newcolumn.append("")
+                #newcolumn.append("0")
 
             #value = "0"
             #if self.valueExists(tag + str(i).zfill(3), column):
@@ -231,7 +232,7 @@ class reqmap():
     def parseTag(self, maxtag, tag):
         self.maxtag = maxtag
         self.init(tag)
-        self.outfile = "/home/afu/Dropbox/mnt-ccb/siga/siga-tools/siga-tools-reqmap/sources/lists/" + tag + ".csv"
+        self.outfile = self.path + tag + ".csv"
         
         self.logv(VERB_MIN, "outfile=%s" % self.outfile)
         self.parseFilesPerTag(tag)
@@ -303,7 +304,7 @@ def main(argv):
 #                m.setLogger('/home/afu/Dropbox/mnt-ccb/siga/siga-tools/siga-tools-wf2ea/myapp.log')
 #            pass
 
-    m.path = "/home/afu/Dropbox/mnt-ccb/siga/siga-tools/siga-tools-reqmap/sources/lists"
+    m.path = "/home/afu/Dropbox/mnt-ccb/siga/siga-tools/siga-tools-doc-reqareamap-csv/sources/lists/"
     m.setVerbosity(VERB_MED)
 
     m.parseTag(400, "RFI")
